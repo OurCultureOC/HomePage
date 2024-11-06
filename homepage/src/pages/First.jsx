@@ -1,11 +1,12 @@
 import NurimLogo from '../assets/firstpage/Logo.png';
+import MainIntro from '../components/MainIntro';
 
 const First = () => {
   return (
     <div className="bg-[#FFECDF] w-full h-full min-h-screen">
       {/* 헤더의 배경색을 전체 너비로 채우기 */}
       <header className="bg-white w-full">
-        <div className="p-5 flex items-center justify-between max-w-[70%] mx-auto">
+        <div className="p-5 flex items-center justify-between max-w-[50%] mx-auto">
           <img src={NurimLogo} alt="Nurim Logo" />
 
           <div className="flex space-x-[30px] text-black">
@@ -16,7 +17,9 @@ const First = () => {
         </div>
       </header>
 
-      <div className="border border-black w-[70%] h-[80vh] mx-auto my-8"></div>
+      <div className="w-[50%] h-[80vh] mx-auto my-8">
+        <MainIntro />
+      </div>
     </div>
   );
 };
