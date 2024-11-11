@@ -1,15 +1,32 @@
 import styled from 'styled-components';
 
-const SecondContent = ({ image }) => {
+const SecondContent = ({ image, textImage, fontSize, textMarginTop, textMarginLeft, textMarginRight, firstLine, secondStartLine, secondImgText, secondLastLine, thirdLine, fourLine, fiveLine, circleMargin, circleWidth }) => {
   return (
     <Background>
-      <TextContainer>여기에 텍스트 넣을거야</TextContainer>
-      <IphoneFrame>
-        {/* <Notch /> */}
-        <Screen>
-          <Screenshot src={image} alt="스크린샷" />
-        </Screen>
-      </IphoneFrame>
+      <MainContainer>
+        <TextArea>
+          <TextContainer fontSize={fontSize.smallFont}>{firstLine}</TextContainer>
+          <ImgTextContainer>
+            <TextContainer fontSize={fontSize.bigFont} textMarginLeft={textMarginLeft}>
+              {secondStartLine}
+            </TextContainer>
+            <TextContainer fontSize={fontSize.bigFont}>{secondImgText}</TextContainer>
+            <ImgText src={textImage} alt="동그라미" circleMargin={circleMargin} circleWidth={circleWidth} />
+            <TextContainer fontSize={fontSize.bigFont} textMarginRight={textMarginRight}>
+              {secondLastLine}
+            </TextContainer>
+          </ImgTextContainer>
+          <TextContainer fontSize={fontSize.bigFont} textMarginTop={textMarginTop}>{thirdLine}</TextContainer>
+          <TextContainer fontSize={fontSize.smallFont}>{fourLine}</TextContainer>
+          <TextContainer fontSize={fontSize.smallFont}>{fiveLine}</TextContainer>
+        </TextArea>
+        <IphoneFrame>
+          {/* <Notch /> */}
+          <Screen>
+            <Screenshot src={image} alt="스크린샷" />
+          </Screen>
+        </IphoneFrame>
+      </MainContainer>
     </Background>
   );
 };
@@ -29,12 +46,12 @@ const Background = styled.div`
 `;
 
 const TextContainer = styled.div`
-  color: black;
-  font-size: 1.2rem;
-  border: 2px solid #000;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 0.7);
+  color: white;
   border-radius: 8px;
+  font-size: ${(props) => props.fontSize || '1rem'};
+  margin-top: ${(props) => props.textMarginTop || '0'};
+  margin-right: ${(props) => props.textMarginLeft || '0'};
+  margin-left: ${(props) => props.textMarginRight || '0'};
 `;
 
 const IphoneFrame = styled.div`
@@ -75,3 +92,34 @@ const Screenshot = styled.img`
   height: 100%;
   object-fit: cover;
 `;
+/* ------------------------------------------------------- start ------------------------------------------------------- */
+
+const MainContainer = styled.div`
+  width: 45%;
+  height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-top: 8vh;
+`
+const TextArea = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; 
+`
+const ImgTextContainer = styled.div`
+  display: flex;
+  position: relative;
+`
+const ImgText = styled.img`
+  position: absolute;
+  top: 1rem;
+  left: 0.5rem;
+  width: ${(props) => props.circleWidth || '0'}; 
+  height: 6rem;
+  margin-top: -0.5rem;
+  margin-left: ${(props) => props.circleMargin || '0'};
+  z-index: 10;
+`
