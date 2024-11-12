@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import NurimLogo from '../assets/firstpage/Logo.png';
 import MainIntro from '../components/MainIntro';
 import Header from '../components/Header';
 

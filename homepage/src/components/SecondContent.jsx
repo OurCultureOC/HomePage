@@ -27,7 +27,7 @@ const SecondContent = ({
           <ImgTextContainer>
             <TextContainer
               fontSize={fontSize.bigFont}
-              textMarginLeft={textMarginLeft}
+              $textMarginRight={textMarginRight}
             >
               {secondStartLine}
             </TextContainer>
@@ -37,19 +37,19 @@ const SecondContent = ({
             <ImgText
               src={textImage}
               alt="동그라미"
-              circleMargin={circleMargin}
-              circleWidth={circleWidth}
+              $circleMargin={circleMargin}
+              $circleWidth={circleWidth}
             />
             <TextContainer
               fontSize={fontSize.bigFont}
-              textMarginRight={textMarginRight}
+              $textMarginLeft={textMarginLeft}
             >
               {secondLastLine}
             </TextContainer>
           </ImgTextContainer>
           <TextContainer
             fontSize={fontSize.bigFont}
-            textMarginTop={textMarginTop}
+            $textMarginTop={textMarginTop}
           >
             {thirdLine}
           </TextContainer>
@@ -61,7 +61,6 @@ const SecondContent = ({
           </TextContainer>
         </TextArea>
         <IphoneFrame>
-          {/* <Notch /> */}
           <Screen>
             <Screenshot src={image} alt="스크린샷" />
           </Screen>
@@ -89,9 +88,9 @@ const TextContainer = styled.div`
   color: white;
   border-radius: 8px;
   font-size: ${(props) => props.fontSize || "1rem"};
-  margin-top: ${(props) => props.textMarginTop || "0"};
-  margin-right: ${(props) => props.textMarginLeft || "0"};
-  margin-left: ${(props) => props.textMarginRight || "0"};
+  margin-top: ${(props) => props.$textMarginTop || "0"};
+  margin-left: ${(props) => props.$textMarginLeft || "0"};
+  margin-right: ${(props) => props.$textMarginRight || "0"};
 `;
 
 const IphoneFrame = styled.div`
@@ -132,7 +131,6 @@ const Screenshot = styled.img`
   height: 100%;
   object-fit: cover;
 `;
-/* ------------------------------------------------------- start ------------------------------------------------------- */
 
 const MainContainer = styled.div`
   width: 45%;
@@ -143,23 +141,26 @@ const MainContainer = styled.div`
   flex-direction: row;
   margin-top: 8vh;
 `;
+
 const TextArea = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
 `;
+
 const ImgTextContainer = styled.div`
   display: flex;
   position: relative;
 `;
+
 const ImgText = styled.img`
   position: absolute;
   top: 1rem;
   left: 0.5rem;
-  width: ${(props) => props.circleWidth || "0"};
+  width: ${(props) => props.$circleWidth || "0"};
   height: 6rem;
   margin-top: -0.5rem;
-  margin-left: ${(props) => props.circleMargin || "0"};
+  margin-left: ${(props) => props.$circleMargin || "0"};
   z-index: 10;
 `;

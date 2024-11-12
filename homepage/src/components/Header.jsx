@@ -8,7 +8,7 @@ const Header = () => {
   const toggleMenu = () => {
     setToggleMenu(!isToggleMenu);
   };
-
+  console.log(isToggleMenu)
   return (
     <HeaderContainer>
       <HeaderContent>
@@ -18,18 +18,19 @@ const Header = () => {
           <MenuItem>앞으로의 누림</MenuItem>
           <MenuItem>이용약관</MenuItem>
         </Menu>
-        <MobileMenu onClick={toggleMenu}>
+        <MobileMenuBar onClick={toggleMenu}>
           <Bar />
           <Bar />
           <Bar />
-        </MobileMenu>
+        </MobileMenuBar>
+        <MobileMenuContainer $isOpen={isToggleMenu}>
+            <MobileMenu>
+                <MobileMenuItem>누림이란?</MobileMenuItem>
+                <MobileMenuItem>앞으로의 누림</MobileMenuItem>
+                <MobileMenuItem>이용약관</MobileMenuItem>
+            </MobileMenu>
+        </MobileMenuContainer>
       </HeaderContent>
-      <MobileSidebar isOpen={isToggleMenu}>
-        <CloseButton onClick={toggleMenu}>×</CloseButton>
-        <MobileMenuItem>누림이란?</MobileMenuItem>
-        <MobileMenuItem>앞으로의 누림</MobileMenuItem>
-        <MobileMenuItem>이용약관</MobileMenuItem>
-      </MobileSidebar>
     </HeaderContainer>
   );
 };
@@ -49,11 +50,14 @@ const HeaderContainer = styled.header`
 
 const HeaderContent = styled.div`
   padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   max-width: 50%;
   margin: 0 auto;
+  /* border: 1px solid black; */
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
 `;
 
 const Logo = styled.img`
@@ -74,7 +78,7 @@ const MenuItem = styled.div`
   cursor: pointer;
 `;
 
-const MobileMenu = styled.div`
+const MobileMenuBar = styled.div`
   display: none;
   @media (max-width: 875px) {
     display: flex;
@@ -97,24 +101,36 @@ const Bar = styled.div`
   border-radius: 5px;
 `;
 
-const MobileSidebar = styled.div`
+const MobileMenuContainer = styled.div`
   position: fixed;
   top: 0;
-  right: ${(props) => (props.isOpen ? "0" : "-100%")};
-  width: 50%;
-  height: 100%;
-  background-color: white;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-  transition: left 0.3s ease;
+  right: ${(props) => (props.$isOpen ? "0" : "-100%")};
+  /* transition: left 0.3s ease; */
   z-index: 9999;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin-top: 75px;
+  width:47%;
+  height: 10%;
+  margin-right: 26.3%;
+  /* margin-right: 29%; */
   @media (min-width: 875px) {
     display: none;
   }
+  /* border: 1px solid black; */
+  
+  display: flex;
+  justify-content: flex-end;
 `;
+const MobileMenu = styled.div`
+    width: 150px;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    /* border: 1px solid black; */
+`
 
 const CloseButton = styled.div`
   align-self: flex-start;

@@ -30,7 +30,7 @@ const Second = () => {
       <SlideContent
         style={{ transform: `translateX(${-(currentContent - 1) * 100}%)` }}
       >
-        <Slide key={1} active={currentContent === 1}>
+        <Slide key={1} $active={currentContent === 1 ? 'true' : 'false'}>
           <SecondContent
             image={testImage}
             textImage={circle}
@@ -49,14 +49,14 @@ const Second = () => {
             circleWidth={"8rem"}
           />
         </Slide>
-        <Slide key={2} active={currentContent === 2}>
+        <Slide key={2} $active={currentContent === 2 ? 'true' : 'false'}>
           <SecondContent
             image={testImage}
             textImage={circle}
             fontSize={fontSize}
             textMarginTop={"-20px"}
-            textMarginLeft={"20px"}
-            textMarginRight={""}
+            textMarginLeft={"0"}
+            textMarginRight={"20px"}
             firstLine={"전통주의 종류가 궁금해!"}
             secondStartLine={"어떤"}
             secondImgText={"전통주"}
@@ -68,14 +68,14 @@ const Second = () => {
             circleWidth={"10rem"}
           />
         </Slide>
-        <Slide key={3} active={currentContent === 3}>
+        <Slide key={3} $active={currentContent === 3 ? 'true' : 'false'}>
           <SecondContent
             image={testImage}
             textImage={circle}
             fontSize={fontSize}
             textMarginTop={"-20px"}
-            textMarginLeft={""}
-            textMarginRight={"20px"}
+            textMarginLeft={"20px"}
+            textMarginRight={""}
             firstLine={"내 주변 주막을 찾고 싶다면!"}
             secondStartLine={""}
             secondImgText={"근처"}
@@ -115,9 +115,11 @@ const SlideContent = styled.div`
 
 const Slide = styled.div`
   flex: 0 0 100%;
-  transition: opacity 3s ease-in-out; /* opacity 1초 애니메이션 */
-  opacity: ${({ active }) => (active ? 1 : 0)};
-  visibility: ${({ active }) => (active ? "visible" : "hidden")};
-  pointer-events: ${({ active }) => (active ? "auto" : "none")};
-  transition: opacity 1s ease-in-out, visibility 0s 1s; /* 1초 동안 opacity 변화 */
+  transition: opacity 3s ease-in-out;
+  opacity: ${({ $active }) => ($active === 'true' ? 1 : 0)};
+  visibility: ${({ $active }) => ($active === 'true' ? 'visible' : 'hidden')};
+  pointer-events: ${({ $active }) => ($active === 'true' ? 'auto' : 'none')};
+  transition: opacity 1s ease-in-out, visibility 0s 1s;
 `;
+
+
