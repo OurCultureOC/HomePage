@@ -121,7 +121,8 @@ const MobileMenuContainer = styled.div`
   justify-content: flex-end;
 `;
 const MobileMenu = styled.div`
-    width: 150px;
+    width: 60%;
+    /* width: 150px; */
     height: 100%;
     background-color: white;
     display: flex;
@@ -132,16 +133,10 @@ const MobileMenu = styled.div`
     /* border: 1px solid black; */
 `
 
-const CloseButton = styled.div`
-  align-self: flex-start;
-  font-size: 24px;
-  cursor: pointer;
-  margin-bottom: 20px;
-  color:black;
-`;
-
 const MobileMenuItem = styled.div`
   color: black;
-  margin: 10px 0;
+  margin: 2% 0;
+  font-size: 1%;
   cursor: pointer;
+  /* border: 1px solid black; */
 `;
