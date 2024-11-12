@@ -1,34 +1,35 @@
-import styled from 'styled-components';
-import SecondContent from '../components/SecondContent';
-import testImage from '../assets/firstpage/image.png';
-import circle from '../assets/secondpage/Circle.png';
-import { useState, useEffect } from 'react';
+import styled from "styled-components";
+import SecondContent from "../components/SecondContent";
+import testImage from "../assets/firstpage/image.png";
+import circle from "../assets/secondpage/Circle.png";
+import { useState, useEffect } from "react";
 
 const Second = () => {
   const [currentContent, setCurrentContent] = useState(1);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentContent(prevContent => {
+      setCurrentContent((prevContent) => {
         if (prevContent === 3) {
           return 1;
         }
         return prevContent + 1;
       });
-    }, 5000); // 5초마다 콘텐츠 전환
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
 
   const fontSize = {
     smallFont: "16px",
-    bigFont: "72px"
-  }
+    bigFont: "72px",
+  };
 
   return (
     <Container>
-      <SlideContent style={{ transform: `translateX(${-(currentContent - 1) * 100}%)` }}>
-        {/* 첫 번째 콘텐츠 */}
+      <SlideContent
+        style={{ transform: `translateX(${-(currentContent - 1) * 100}%)` }}
+      >
         <Slide key={1} active={currentContent === 1}>
           <SecondContent
             image={testImage}
@@ -48,8 +49,6 @@ const Second = () => {
             circleWidth={"8rem"}
           />
         </Slide>
-
-        {/* 두 번째 콘텐츠 */}
         <Slide key={2} active={currentContent === 2}>
           <SecondContent
             image={testImage}
@@ -69,8 +68,6 @@ const Second = () => {
             circleWidth={"10rem"}
           />
         </Slide>
-
-        {/* 세 번째 콘텐츠 */}
         <Slide key={3} active={currentContent === 3}>
           <SecondContent
             image={testImage}
@@ -97,9 +94,8 @@ const Second = () => {
 
 export default Second;
 
-// 스타일드 컴포넌트 정의
 const Container = styled.div`
-  background-color: #FF8224;
+  background-color: #ff8224;
   width: 100%;
   height: 100%;
   min-height: 100vh;
@@ -121,8 +117,7 @@ const Slide = styled.div`
   flex: 0 0 100%;
   transition: opacity 3s ease-in-out; /* opacity 1초 애니메이션 */
   opacity: ${({ active }) => (active ? 1 : 0)};
-  visibility: ${({ active }) => (active ? 'visible' : 'hidden')};
-  pointer-events: ${({ active }) => (active ? 'auto' : 'none')};
+  visibility: ${({ active }) => (active ? "visible" : "hidden")};
+  pointer-events: ${({ active }) => (active ? "auto" : "none")};
   transition: opacity 1s ease-in-out, visibility 0s 1s; /* 1초 동안 opacity 변화 */
-
 `;
