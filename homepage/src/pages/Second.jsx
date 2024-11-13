@@ -119,6 +119,9 @@ const SlideContent = styled.div`
   @media (max-width: 400px) {
     width: 230%;
   }
+  @media (max-width: 350px) {
+    width: 250%;
+  }
 `;
 
 const Slide = styled.div`

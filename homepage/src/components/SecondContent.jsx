@@ -73,6 +73,10 @@ const IphoneFrame = styled.div`
     width: 245px;
     height: 412px;
   }
+  @media (max-height: 890px) {
+    width: 245px;
+    height: 412px;
+  }
 `;
 const Screen = styled.div`
   width: 100%;
@@ -92,9 +96,6 @@ const Screenshot = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  @media (max-width: 680px) {
-    /* object-fit: contain; */
-  }
 `;
 const MainContainer = styled.div`
   width: 800px;
@@ -118,7 +119,6 @@ const TextArea = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; 수평 가운데 정렬 */
   
   @media (max-width: 680px) {
     align-items: center; /* 680px 이하에서 수평 정렬 */
@@ -139,6 +139,11 @@ const SmallTextContainer = styled.div`
     margin-left: ${(props) => (props.$textMarginLeft ? `calc(${props.$textMarginLeft} - 10px)` : "0")};
     margin-right: ${(props) => props.$textMarginRight ? `calc(${props.$textMarginRight} - 10px)` : "0"};
   }
+  @media (max-height: 890px) {
+    font-size: 10px;
+    margin-left: ${(props) => (props.$textMarginLeft ? `calc(${props.$textMarginLeft} - 10px)` : "0")};
+    margin-right: ${(props) => props.$textMarginRight ? `calc(${props.$textMarginRight} - 10px)` : "0"};
+  }
 `;
 const BigTextContainer = styled.div`
   color: white;
@@ -151,6 +156,11 @@ const BigTextContainer = styled.div`
     font-size: 52px;
   }
   @media (max-height: 785px) {
+    font-size: 32px;
+    margin-left: ${(props) => (props.$textMarginLeft ? `calc(${props.$textMarginLeft} - 10px)` : "0")};
+    margin-right: ${(props) => props.$textMarginRight ? `calc(${props.$textMarginRight} - 10px)` : "0"};
+  }
+  @media (max-height: 890px) {
     font-size: 32px;
     margin-left: ${(props) => (props.$textMarginLeft ? `calc(${props.$textMarginLeft} - 10px)` : "0")};
     margin-right: ${(props) => props.$textMarginRight ? `calc(${props.$textMarginRight} - 10px)` : "0"};
@@ -178,6 +188,14 @@ const ImgText = styled.img`
     height: 4rem
   }
   @media (max-height: 785px) {
+    width: ${({ $circleWidth }) => `calc(${parseFloat($circleWidth || "5")}rem - 4.3rem)`};
+    margin-left: ${(props) =>
+    props.$circleMargin === "9.5rem" ? "3.3rem" : props.$circleMargin || "0"};
+    height: 2.5rem;
+    
+    top: 0.2rem;
+  }
+  @media (max-height: 890px) {
     width: ${({ $circleWidth }) => `calc(${parseFloat($circleWidth || "5")}rem - 4.3rem)`};
     margin-left: ${(props) =>
     props.$circleMargin === "9.5rem" ? "3.3rem" : props.$circleMargin || "0"};
