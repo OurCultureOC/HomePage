@@ -28,7 +28,9 @@ const Second = () => {
   return (
     <Container>
       <SlideContent
-        style={{ transform: `translateX(${-(currentContent - 1) * 100}%)` }}
+        style={{
+          transform: `translateX(${-(currentContent - 1) * 100}%)`,
+        }}
       >
         <Slide key={1} $active={currentContent === 1 ? 'true' : 'false'}>
           <SecondContent
@@ -101,15 +103,28 @@ const Container = styled.div`
   min-height: 100vh;
   position: relative;
   overflow: hidden;
-  /* display: flex;
+  display: flex;
   flex-direction: row;
-  justify-content: center; */
+  justify-content: center;
+
+  @media (max-width: 680px) {
+    /* 모바일 화면에서 슬라이드가 화면 왼쪽에 붙도록 수정 */
+    /* justify-content: flex-start; */
+    /* align-items: flex-start; */
+  }
 `;
 
 const SlideContent = styled.div`
   width: 50%;
-  transition: transform 2s ease-in-out; /* 2초 애니메이션 */
   display: flex;
+  transition: transform 2s ease-in-out;
+
+  @media (max-width: 680px) {
+    width: 200%;
+  }
+  @media (max-width: 400px) {
+    width: 230%;
+  }
 `;
 
 const Slide = styled.div`
@@ -120,5 +135,3 @@ const Slide = styled.div`
   pointer-events: ${({ $active }) => ($active === 'true' ? 'auto' : 'none')};
   transition: opacity 1s ease-in-out, visibility 0s 1s;
 `;
-
-
