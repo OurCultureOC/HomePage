@@ -105,7 +105,6 @@ const MobileMenuContainer = styled.div`
   position: fixed;
   top: 0;
   right: ${(props) => (props.$isOpen ? "0" : "-100%")};
-  /* transition: left 0.3s ease; */
   z-index: 9999;
   margin-top: 75px;
   width:47%;
@@ -116,7 +115,6 @@ const MobileMenuContainer = styled.div`
     display: none;
   }
   /* border: 1px solid black; */
-  
   display: flex;
   justify-content: flex-end;
 `;

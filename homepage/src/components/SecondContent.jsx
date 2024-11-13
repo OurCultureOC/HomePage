@@ -21,44 +21,16 @@ const SecondContent = ({
     <Background>
       <MainContainer>
         <TextArea>
-          <TextContainer fontSize={fontSize.smallFont}>
-            {firstLine}
-          </TextContainer>
+          <SmallTextContainer fontSize={fontSize.smallFont}>{firstLine}</SmallTextContainer>
           <ImgTextContainer>
-            <TextContainer
-              fontSize={fontSize.bigFont}
-              $textMarginRight={textMarginRight}
-            >
-              {secondStartLine}
-            </TextContainer>
-            <TextContainer fontSize={fontSize.bigFont}>
-              {secondImgText}
-            </TextContainer>
-            <ImgText
-              src={textImage}
-              alt="동그라미"
-              $circleMargin={circleMargin}
-              $circleWidth={circleWidth}
-            />
-            <TextContainer
-              fontSize={fontSize.bigFont}
-              $textMarginLeft={textMarginLeft}
-            >
-              {secondLastLine}
-            </TextContainer>
+            <BigTextContainer fontSize={fontSize.bigFont} $textMarginRight={textMarginRight}>{secondStartLine}</BigTextContainer>
+            <BigTextContainer fontSize={fontSize.bigFont}>{secondImgText}</BigTextContainer>
+            <ImgText src={textImage} alt="동그라미" $circleMargin={circleMargin} $circleWidth={circleWidth}/>
+            <BigTextContainer fontSize={fontSize.bigFont} $textMarginLeft={textMarginLeft}>{secondLastLine}</BigTextContainer>
           </ImgTextContainer>
-          <TextContainer
-            fontSize={fontSize.bigFont}
-            $textMarginTop={textMarginTop}
-          >
-            {thirdLine}
-          </TextContainer>
-          <TextContainer fontSize={fontSize.smallFont}>
-            {fourLine}
-          </TextContainer>
-          <TextContainer fontSize={fontSize.smallFont}>
-            {fiveLine}
-          </TextContainer>
+          <BigTextContainer fontSize={fontSize.bigFont} $textMarginTop={textMarginTop}>{thirdLine}</BigTextContainer>
+          <SmallTextContainer fontSize={fontSize.smallFont}> {fourLine}</SmallTextContainer>
+          <SmallTextContainer fontSize={fontSize.smallFont}>{fiveLine}</SmallTextContainer>
         </TextArea>
         <IphoneFrame>
           <Screen>
@@ -83,18 +55,7 @@ const Background = styled.div`
   flex-direction: row; /* 가로 배치 */
   gap: 20px; /* 간격 조정 */
 `;
-
-const TextContainer = styled.div`
-  color: white;
-  border-radius: 8px;
-  font-size: ${(props) => props.fontSize || "1rem"};
-  margin-top: ${(props) => props.$textMarginTop || "0"};
-  margin-left: ${(props) => props.$textMarginLeft || "0"};
-  margin-right: ${(props) => props.$textMarginRight || "0"};
-`;
-
 const IphoneFrame = styled.div`
-  position: relative;
   width: 345px;
   height: 612px;
   background-color: #f8f4e3;
@@ -104,17 +65,11 @@ const IphoneFrame = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: 680px) {
+    width: 245px;
+    height: 512px;
+  }
 `;
-
-const Notch = styled.div`
-  position: absolute;
-  top: 8px;
-  width: 210px;
-  height: 30px;
-  background-color: black;
-  border-radius: 10px;
-`;
-
 const Screen = styled.div`
   width: 100%;
   height: 100%;
@@ -124,36 +79,76 @@ const Screen = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: 680px) {
+    /* width: 90%;
+    height: 90%;  */
+  }
 `;
-
 const Screenshot = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  @media (max-width: 680px) {
+    /* object-fit: contain; */
+  }
 `;
-
 const MainContainer = styled.div`
-  width: 45%;
+  width: 800px;
   height: 92vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
+  flex-wrap: wrap;
   margin-top: 8vh;
+
+  @media (max-width: 680px) {
+    flex-direction: column; /* 세로 배치 */
+    align-items: center; /* 수평 가운데 정렬 */
+    justify-content: center; /* 수직 가운데 정렬 */
+    height: auto; /* 필요 시 높이 자동 조정 */
+  }
 `;
 
 const TextArea = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  /* align-items: center; 수평 가운데 정렬 */
+  
+  @media (max-width: 680px) {
+    align-items: center; /* 680px 이하에서 수평 정렬 */
+    font-size: 15px;
+  }
 `;
-
+const SmallTextContainer = styled.div`
+  color: white;
+  border-radius: 8px;
+  font-size: ${(props) => props.fontSize || "1rem"};
+  margin-top: ${(props) => props.$textMarginTop || "0"};
+  margin-left: ${(props) => props.$textMarginLeft || "0"};
+  margin-right: ${(props) => props.$textMarginRight || "0"};
+  @media (max-width: 680px) {
+    font-size: 15px;
+  }
+`;
+const BigTextContainer = styled.div`
+  color: white;
+  border-radius: 8px;
+  font-size: ${(props) => props.fontSize || "1rem"};
+  margin-top: ${(props) => props.$textMarginTop || "0"};
+  margin-left: ${(props) => props.$textMarginLeft || "0"};
+  margin-right: ${(props) => props.$textMarginRight || "0"};
+  @media (max-width: 680px) {
+    font-size: 52px;
+  }
+`
 const ImgTextContainer = styled.div`
   display: flex;
   position: relative;
+  flex-wrap: wrap;
+  align-content: flex-start;
 `;
-
 const ImgText = styled.img`
   position: absolute;
   top: 1rem;
@@ -163,4 +158,15 @@ const ImgText = styled.img`
   margin-top: -0.5rem;
   margin-left: ${(props) => props.$circleMargin || "0"};
   z-index: 10;
+  @media (max-width: 680px) {
+    width: ${({ $circleWidth }) => `calc(${parseFloat($circleWidth || "5")}rem - 2rem)`};
+    margin-left: ${(props) =>
+    props.$circleMargin === "9.5rem" ? "6.5rem" : props.$circleMargin || "0"};
+    height: 4rem
+  }
 `;
+const Area= styled.div`
+  @media (max-width: 875px) {
+    margin-bottom: 160vh;
+  }
+`

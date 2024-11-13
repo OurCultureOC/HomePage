@@ -101,14 +101,13 @@ const Container = styled.div`
   min-height: 100vh;
   position: relative;
   overflow: hidden;
+  /* display: flex;
+  flex-direction: row;
+  justify-content: center; */
 `;
 
 const SlideContent = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  width: 50%;
   transition: transform 2s ease-in-out; /* 2초 애니메이션 */
   display: flex;
 `;
