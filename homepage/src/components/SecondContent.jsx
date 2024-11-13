@@ -77,6 +77,10 @@ const IphoneFrame = styled.div`
     width: 245px;
     height: 412px;
   }
+  @media (max-width: 1024px) and (max-height: 600px) {
+     width: 345px;
+     height: 612px;
+  }
 `;
 const Screen = styled.div`
   width: 100%;
@@ -87,10 +91,6 @@ const Screen = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  @media (max-width: 680px) {
-    /* width: 90%;
-    height: 90%;  */
-  }
 `;
 const Screenshot = styled.img`
   width: 100%;
@@ -119,10 +119,6 @@ const TextArea = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
-  @media (max-width: 680px) {
-    align-items: center; /* 680px 이하에서 수평 정렬 */
-  }
 `;
 const SmallTextContainer = styled.div`
   color: white;
