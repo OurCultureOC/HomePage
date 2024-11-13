@@ -106,12 +106,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-
-  @media (max-width: 680px) {
-    /* 모바일 화면에서 슬라이드가 화면 왼쪽에 붙도록 수정 */
-    /* justify-content: flex-start; */
-    /* align-items: flex-start; */
-  }
 `;
 
 const SlideContent = styled.div`

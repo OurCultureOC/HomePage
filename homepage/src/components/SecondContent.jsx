@@ -66,8 +66,12 @@ const IphoneFrame = styled.div`
   align-items: center;
   justify-content: center;
   @media (max-width: 680px) {
-    width: 245px;
+    width: 295px;
     height: 512px;
+  }
+  @media (max-height: 680px) {
+    width: 245px;
+    height: 412px;
   }
 `;
 const Screen = styled.div`
@@ -118,7 +122,6 @@ const TextArea = styled.div`
   
   @media (max-width: 680px) {
     align-items: center; /* 680px 이하에서 수평 정렬 */
-    font-size: 15px;
   }
 `;
 const SmallTextContainer = styled.div`
@@ -131,6 +134,11 @@ const SmallTextContainer = styled.div`
   @media (max-width: 680px) {
     font-size: 15px;
   }
+  @media (max-height: 785px) {
+    font-size: 10px;
+    margin-left: ${(props) => (props.$textMarginLeft ? `calc(${props.$textMarginLeft} - 10px)` : "0")};
+    margin-right: ${(props) => props.$textMarginRight ? `calc(${props.$textMarginRight} - 10px)` : "0"};
+  }
 `;
 const BigTextContainer = styled.div`
   color: white;
@@ -142,6 +150,11 @@ const BigTextContainer = styled.div`
   @media (max-width: 680px) {
     font-size: 52px;
   }
+  @media (max-height: 785px) {
+    font-size: 32px;
+    margin-left: ${(props) => (props.$textMarginLeft ? `calc(${props.$textMarginLeft} - 10px)` : "0")};
+    margin-right: ${(props) => props.$textMarginRight ? `calc(${props.$textMarginRight} - 10px)` : "0"};
+  }
 `
 const ImgTextContainer = styled.div`
   display: flex;
@@ -151,11 +164,11 @@ const ImgTextContainer = styled.div`
 `;
 const ImgText = styled.img`
   position: absolute;
-  top: 1rem;
+  top: 0.5rem;
   left: 0.5rem;
   width: ${(props) => props.$circleWidth || "0"};
   height: 6rem;
-  margin-top: -0.5rem;
+  /* margin-top: -0.5rem; */
   margin-left: ${(props) => props.$circleMargin || "0"};
   z-index: 10;
   @media (max-width: 680px) {
@@ -163,6 +176,14 @@ const ImgText = styled.img`
     margin-left: ${(props) =>
     props.$circleMargin === "9.5rem" ? "6.5rem" : props.$circleMargin || "0"};
     height: 4rem
+  }
+  @media (max-height: 785px) {
+    width: ${({ $circleWidth }) => `calc(${parseFloat($circleWidth || "5")}rem - 4.3rem)`};
+    margin-left: ${(props) =>
+    props.$circleMargin === "9.5rem" ? "3.3rem" : props.$circleMargin || "0"};
+    height: 2.5rem;
+    
+    top: 0.2rem;
   }
 `;
 const Area= styled.div`
