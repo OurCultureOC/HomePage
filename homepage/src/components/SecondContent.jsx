@@ -77,9 +77,9 @@ const IphoneFrame = styled.div`
     width: 245px;
     height: 412px;
   }
-  @media (max-width: 1024px) and (max-height: 600px) {
-     width: 345px;
-     height: 612px;
+  @media (max-width: 768px) and (max-height: 1024px) {
+    width: 245px;
+    height: 412px;
   }
 `;
 const Screen = styled.div`
@@ -98,20 +98,22 @@ const Screenshot = styled.img`
   object-fit: cover;
 `;
 const MainContainer = styled.div`
-  width: 800px;
+  width: 60%;
   height: 92vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 50px;
   flex-direction: row;
   flex-wrap: wrap;
   margin-top: 8vh;
 
-  @media (max-width: 680px) {
+  @media (max-width: 1024px) {
     flex-direction: column; /* 세로 배치 */
     align-items: center; /* 수평 가운데 정렬 */
     justify-content: center; /* 수직 가운데 정렬 */
     height: auto; /* 필요 시 높이 자동 조정 */
+    gap: 10px;
   }
 `;
 
@@ -119,6 +121,7 @@ const TextArea = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-content: center;
 `;
 const SmallTextContainer = styled.div`
   color: white;
@@ -131,16 +134,22 @@ const SmallTextContainer = styled.div`
     font-size: 15px;
   }
   @media (max-height: 785px) {
-    font-size: 10px;
+    font-size: 13px;
     margin-left: ${(props) => (props.$textMarginLeft ? `calc(${props.$textMarginLeft} - 10px)` : "0")};
     margin-right: ${(props) => props.$textMarginRight ? `calc(${props.$textMarginRight} - 10px)` : "0"};
   }
-  @media (max-height: 890px) {
-    font-size: 10px;
+  @media (max-height: 845px) {
+    font-size: 13px;
+    margin-left: ${(props) => (props.$textMarginLeft ? `calc(${props.$textMarginLeft} - 10px)` : "0")};
+    margin-right: ${(props) => props.$textMarginRight ? `calc(${props.$textMarginRight} - 10px)` : "0"};
+  }
+  @media (max-width: 768px) and (max-height: 1024px) {
+    font-size: 13px;
     margin-left: ${(props) => (props.$textMarginLeft ? `calc(${props.$textMarginLeft} - 10px)` : "0")};
     margin-right: ${(props) => props.$textMarginRight ? `calc(${props.$textMarginRight} - 10px)` : "0"};
   }
 `;
+
 const BigTextContainer = styled.div`
   color: white;
   border-radius: 8px;
@@ -156,11 +165,21 @@ const BigTextContainer = styled.div`
     margin-left: ${(props) => (props.$textMarginLeft ? `calc(${props.$textMarginLeft} - 10px)` : "0")};
     margin-right: ${(props) => props.$textMarginRight ? `calc(${props.$textMarginRight} - 10px)` : "0"};
   }
-  @media (max-height: 890px) {
+  @media (max-height: 845px) {
     font-size: 32px;
     margin-left: ${(props) => (props.$textMarginLeft ? `calc(${props.$textMarginLeft} - 10px)` : "0")};
     margin-right: ${(props) => props.$textMarginRight ? `calc(${props.$textMarginRight} - 10px)` : "0"};
   }
+  @media (max-width: 768px) and (max-height: 1024px) {
+    font-size: 32px;
+    margin-left: ${(props) => (props.$textMarginLeft ? `calc(${props.$textMarginLeft} - 10px)` : "0")};
+    margin-right: ${(props) => props.$textMarginRight ? `calc(${props.$textMarginRight} - 10px)` : "0"};
+  }
+  /* @media (max-width: 1400px) and (max-height: 770px) {
+    font-size: 32px;
+    margin-left: ${(props) => (props.$textMarginLeft ? `calc(${props.$textMarginLeft} - 10px)` : "0")};
+    margin-right: ${(props) => props.$textMarginRight ? `calc(${props.$textMarginRight} - 10px)` : "0"};
+  } */
 `
 const ImgTextContainer = styled.div`
   display: flex;
@@ -191,7 +210,14 @@ const ImgText = styled.img`
     
     top: 0.2rem;
   }
-  @media (max-height: 890px) {
+  @media (max-width: 768px) and (max-height: 1024px) {
+  width: ${({ $circleWidth }) => `calc(${parseFloat($circleWidth || "5")}rem - 4.3rem)`};
+  margin-left: ${(props) =>
+  props.$circleMargin === "9.5rem" ? "3.3rem" : props.$circleMargin || "0"};
+  height: 2.5rem;
+  top: 0.2rem;
+  }
+  @media (max-height: 845px) {
     width: ${({ $circleWidth }) => `calc(${parseFloat($circleWidth || "5")}rem - 4.3rem)`};
     margin-left: ${(props) =>
     props.$circleMargin === "9.5rem" ? "3.3rem" : props.$circleMargin || "0"};
@@ -200,8 +226,3 @@ const ImgText = styled.img`
     top: 0.2rem;
   }
 `;
-const Area= styled.div`
-  @media (max-width: 875px) {
-    margin-bottom: 160vh;
-  }
-`

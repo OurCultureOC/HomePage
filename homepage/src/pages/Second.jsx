@@ -106,16 +106,16 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  @media (max-width: 1024px) and (max-height: 600px) {
+  /* @media (max-width: 1024px) and (max-height: 600px) {
      display:none;
-  }
+  } */
 `;
 
 const SlideContent = styled.div`
   width: 100%;
   display: flex;
   transition: transform 2s ease-in-out;
-
+  
   @media (max-width: 680px) {
     width: 200%;
   }
