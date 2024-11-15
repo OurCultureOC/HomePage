@@ -109,10 +109,10 @@ const MainContainer = styled.div`
   margin-top: 8vh;
 
   @media (max-width: 1024px) {
-    flex-direction: column; /* 세로 배치 */
-    align-items: center; /* 수평 가운데 정렬 */
-    justify-content: center; /* 수직 가운데 정렬 */
-    height: auto; /* 필요 시 높이 자동 조정 */
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    height: auto;
     gap: 10px;
   }
 `;
@@ -175,11 +175,6 @@ const BigTextContainer = styled.div`
     margin-left: ${(props) => (props.$textMarginLeft ? `calc(${props.$textMarginLeft} - 10px)` : "0")};
     margin-right: ${(props) => props.$textMarginRight ? `calc(${props.$textMarginRight} - 10px)` : "0"};
   }
-  /* @media (max-width: 1400px) and (max-height: 770px) {
-    font-size: 32px;
-    margin-left: ${(props) => (props.$textMarginLeft ? `calc(${props.$textMarginLeft} - 10px)` : "0")};
-    margin-right: ${(props) => props.$textMarginRight ? `calc(${props.$textMarginRight} - 10px)` : "0"};
-  } */
 `
 const ImgTextContainer = styled.div`
   display: flex;
@@ -193,7 +188,6 @@ const ImgText = styled.img`
   left: 0.5rem;
   width: ${(props) => props.$circleWidth || "0"};
   height: 6rem;
-  /* margin-top: -0.5rem; */
   margin-left: ${(props) => props.$circleMargin || "0"};
   z-index: 10;
   @media (max-width: 680px) {
@@ -222,7 +216,6 @@ const ImgText = styled.img`
     margin-left: ${(props) =>
     props.$circleMargin === "9.5rem" ? "3.3rem" : props.$circleMargin || "0"};
     height: 2.5rem;
-    
     top: 0.2rem;
   }
 `;

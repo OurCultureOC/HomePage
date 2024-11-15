@@ -110,17 +110,14 @@ const MobileMenuContainer = styled.div`
   width:47%;
   height: 10%;
   margin-right: 26.3%;
-  /* margin-right: 29%; */
   @media (min-width: 875px) {
     display: none;
   }
-  /* border: 1px solid black; */
   display: flex;
   justify-content: flex-end;
 `;
 const MobileMenu = styled.div`
     width: 60%;
-    /* width: 150px; */
     height: 100%;
     background-color: white;
     display: flex;
@@ -128,7 +125,6 @@ const MobileMenu = styled.div`
     align-items: center;
     justify-content:center;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-    /* border: 1px solid black; */
 `
 
 const MobileMenuItem = styled.div`
@@ -136,5 +132,4 @@ const MobileMenuItem = styled.div`
   margin: 2% 0;
   font-size: 1%;
   cursor: pointer;
-  /* border: 1px solid black; */
 `;

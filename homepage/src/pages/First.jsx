@@ -15,7 +15,6 @@ const First = () => {
 
 export default First;
 
-// 스타일드 컴포넌트 정의
 const Container = styled.div`
   background-color: #ffecdf;
   width: 100%;
