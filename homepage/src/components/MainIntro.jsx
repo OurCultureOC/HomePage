@@ -98,7 +98,7 @@ const MainIntro = () => {
           <Button
             icons={GoogleBtnIcon}
             text="Google Store"
-            link="/"
+            link="https://play.google.com/store/apps/details?id=com.kiwoongsksksk.NuRim&hl=ko"
             color="bg-[#FF8224]"
             width="w-35"
             height="h-12"
