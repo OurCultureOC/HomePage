@@ -7,6 +7,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'h-sm': { 'raw': '(max-height: 400px)' }, // max-height가 785px 이하일 때
+      },
       fontFamily: {
         jua: ['Jua', 'sans-serif'], // 로컬 폰트 Jua 추가
       },
