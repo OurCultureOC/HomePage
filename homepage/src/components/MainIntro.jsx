@@ -8,7 +8,7 @@ import Wavve from "../assets/firstpage/Wave.png"; // 물결 이미지
 const MainIntro = () => {
   return (
     <div className="w-full h-full flex text-black flex-wrap justify-center items-center
-                    h-sm:mt-[76px]
+                    h-sm:mt-[75px]
                     sm:justify-nomal sm:flex-nowrap
                     md:justfi-nomal md:flex-nowrap
                     lg:justify-nomal lg:flex-nowrap
