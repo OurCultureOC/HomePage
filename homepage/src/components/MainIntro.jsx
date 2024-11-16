@@ -7,23 +7,29 @@ import Wavve from "../assets/firstpage/Wave.png"; // 물결 이미지
 
 const MainIntro = () => {
   return (
-    <div className="w-full h-full flex text-black flex-wrap justify-center items-center
+    <div
+      className="w-full h-full flex text-black flex-wrap justify-center items-center
                     h-sm:mt-[75px]
                     sm:justify-nomal sm:flex-nowrap
                     md:justfi-nomal md:flex-nowrap
                     lg:justify-nomal lg:flex-nowrap
-                   ">
-      <div className="w-1/2 flex flex-col justify-center items-center mt-20 flex-wrap min-w-[150px]
+                   "
+    >
+      <div
+        className="w-1/2 flex flex-col justify-center items-center mt-20 flex-wrap min-w-[250px]
                       sm:ml-0 sm:mt-0 sm:items-start
                       md:ml-0 sm:mt-0 md:items-start
                       lg:ml-0 sm:mt-0 lg:items-start
-                     ">
-        <div className="mb-4 
+                     "
+      >
+        <div
+          className="mb-4 
                         text-[10px] text-center
                         sm:text-sm sm:text-start
                         md:text-base md:justify-start
                         lg:text-lg lg:justify-start
-                       ">
+                       "
+        >
           탁주부터 전통소주까지
         </div>
 
@@ -90,11 +96,13 @@ const MainIntro = () => {
           찾을 수 있어요.
         </div>
 
-        <div className="flex flex-wrap gap-3 mt-4 justify-center
+        <div
+          className="flex flex-wrap gap-3 mt-4 justify-center
                         sm:justify-start
                         md:justify-start
                         lg:justify-start
-                       ">
+                       "
+        >
           <Button
             icons={GoogleBtnIcon}
             text="Google Store"

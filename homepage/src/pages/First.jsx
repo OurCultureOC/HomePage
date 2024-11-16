@@ -5,7 +5,6 @@ import Header from '../components/Header';
 const First = () => {
   return (
     <Container>
-      <Header />
       <MainIntroWrapper>
         <MainIntro />
       </MainIntroWrapper>
