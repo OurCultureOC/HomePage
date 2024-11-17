@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import MainIntro from '../components/MainIntro';
-import Header from '../components/Header';
+import styled from "styled-components";
+import MainIntro from "../components/MainIntro";
+import Header from "../components/Header";
 
 const First = () => {
   return (

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import NurimLogo from "../assets/firstpage/Logo.png";
 import { useState, useRef, useEffect } from "react";
+import Modal from "./Modal";
 
 const Header = () => {
   const [isToggleMenu, setToggleMenu] = useState(false);
@@ -15,20 +16,30 @@ const Header = () => {
   const toggleMenu = () => {
     setToggleMenu(!isToggleMenu);
   };
-
+  const closeModal = () => {
+    setFirstModal(false);
+    setSecondModal(false);
+    setThirdModal(false);
+  };
   const openFirstModal = (e) => {
     e.stopPropagation();
     setFirstModal(true);
+    setSecondModal(false);
+    setThirdModal(false);
   };
 
   const openSecondModal = (e) => {
     e.stopPropagation();
     setSecondModal(true);
+    setFirstModal(false);
+    setThirdModal(false);
   };
 
   const openThirdModal = (e) => {
     e.stopPropagation();
     setThirdModal(true);
+    setFirstModal(false);
+    setSecondModal(false);
   };
 
   const handleClose = (e) => {
@@ -61,8 +72,8 @@ const Header = () => {
         <Logo src={NurimLogo} alt="Nurim Logo" />
         <Menu>
           <MenuItem onClick={openFirstModal}>누림이란?</MenuItem>
-          <MenuItem onClick={openSecondModal}>두 번째 모달</MenuItem>
-          <MenuItem onClick={openThirdModal}>세 번째 모달</MenuItem>
+          <MenuItem onClick={openSecondModal}>앞으로의 누림</MenuItem>
+          <MenuItem onClick={openThirdModal}>이용약관</MenuItem>
         </Menu>
         <MobileMenuBar onClick={toggleMenu}>
           <Bar />
@@ -72,45 +83,26 @@ const Header = () => {
         <MobileMenuContainer $isOpen={isToggleMenu}>
           <MobileMenu>
             <MobileMenuItem onClick={openFirstModal}>누림이란?</MobileMenuItem>
-            <MobileMenuItem onClick={openSecondModal}>
-              두 번째 모달
-            </MobileMenuItem>
-            <MobileMenuItem onClick={openThirdModal}>
-              세 번째 모달
-            </MobileMenuItem>
+            <MobileMenuItem onClick={openSecondModal}>앞으로의 누림</MobileMenuItem>
+            <MobileMenuItem onClick={openThirdModal}>이용약관</MobileMenuItem>
           </MobileMenu>
         </MobileMenuContainer>
       </HeaderContent>
 
-      {isFirstModal && <TestModal ref={modal1}>
-          <div>x</div>
-          <div>첫번째 모달입니다.</div>
-      </TestModal>}
-      {isSecondModal && <TestModal ref={modal2}>두 번째 모달입니다!</TestModal>}
-      {isThirdModal && <TestModal ref={modal3}>세 번째 모달입니다!</TestModal>}
+      {isFirstModal && (
+        <Modal isModal={closeModal} isFirstModal={isFirstModal} isSecondModal={isSecondModal} isThirdModal={isThirdModal} ref={modal1} />
+      )}
+      {isSecondModal && (
+        <Modal isModal={closeModal} isFirstModal={isFirstModal} isSecondModal={isSecondModal} isThirdModal={isThirdModal} ref={modal2} />
+      )}
+      {isThirdModal && (
+        <Modal isModal={closeModal} isFirstModal={isFirstModal} isSecondModal={isSecondModal} isThirdModal={isThirdModal} ref={modal3} />
+      )}
     </HeaderContainer>
   );
 };
 
 export default Header;
-
-const TestModal = styled.div`
-  position: fixed; /* 화면에 고정 */
-  top: 50%; /* 세로 중심 */
-  left: 50%; /* 가로 중심 */
-  transform: translate(-50%, -50%); /* 완전한 중앙 정렬 */
-  width: 50%; /* 너비 설정 */
-  height: 50%; /* 높이 설정 */
-  z-index: 10000; /* 상위 요소로 설정 */
-  background-color: rgba(0, 0, 0, 0.8); /* 반투명 배경 */
-  color: white; /* 텍스트 색상 */
-  display: flex; /* 내용 정렬 */
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  font:white;
-`;
 
 const HeaderContainer = styled.header`
   background-color: white;
@@ -127,8 +119,6 @@ const HeaderContent = styled.div`
   padding: 20px;
   max-width: 50%;
   margin: 0 auto;
-  /* border: 1px solid black; */
-
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -155,6 +145,10 @@ const MenuItem = styled.div`
 
 const MobileMenuBar = styled.div`
   display: none;
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 35px;
+  height: 25px;
   @media (max-width: 875px) {
     display: flex;
     cursor: pointer;
@@ -163,11 +157,6 @@ const MobileMenuBar = styled.div`
     align-items: center;
     gap: 3px;
   }
-
-  border: 2px solid black;
-  border-radius: 5px;
-  width: 35px;
-  height: 25px;
 `;
 const Bar = styled.div`
   width: 25px;
@@ -207,4 +196,5 @@ const MobileMenuItem = styled.div`
   color: black;
   font-size: 10px;
   cursor: pointer;
+  height: 15%;
 `;
