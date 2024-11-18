@@ -49,6 +49,10 @@ const Header = () => {
       (isFirstModal && modal1.current && !modal1.current.contains(e.target)) ||
       (isSecondModal && modal2.current && !modal2.current.contains(e.target)) ||
       (isThirdModal && modal3.current && !modal3.current.contains(e.target))
+      /* 
+         modal1.current: ref가 연결된 DOM 요소가 존재하는지 확인.(랜더링 여부)
+         !modal1.current.contains(e.target): 클릭한 요소가 모달 내부에 없으면 모달 외부 클릭으로 판단.
+      */
     ) {
       setFirstModal(false);
       setSecondModal(false);
@@ -57,9 +61,9 @@ const Header = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("click", handleClose);
+    window.addEventListener("click", handleClose); //외부 클릭시 이벤트 등록 및 handleClose함수 실행
     return () => {
-      window.removeEventListener("click", handleClose);
+      window.removeEventListener("click", handleClose); //외부 클릭시 이벤트 제거 및 handleClose함수 실행
     };
   }, [isFirstModal, isSecondModal, isThirdModal]);
 

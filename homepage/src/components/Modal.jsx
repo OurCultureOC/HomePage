@@ -2,11 +2,7 @@ import React, { forwardRef } from "react";
 import styled from "styled-components";
 import icon from "../assets/modal/icon.png";
 
-const Modal = forwardRef(
-  ({ isModal, isFirstModal, isSecondModal, isThirdModal }, ref) => {
-    console.log(isFirstModal);
-    console.log(isSecondModal);
-    console.log(isThirdModal);
+const Modal = forwardRef(({ isModal, isFirstModal, isSecondModal, isThirdModal }, ref) => { //자식 컨포넌트에게 ref를 전달하기 위해 forwardRef사용
     return (
       <ModalContainer ref={ref}>
         <Container>
