@@ -2,6 +2,8 @@ import styled from "styled-components";
 import NurimLogo from "../assets/firstpage/Logo.png";
 import { useState, useRef, useEffect } from "react";
 import Modal from "./Modal";
+import open from "../assets/header/open.png"
+import close from "../assets/header/close.png"
 
 const Header = () => {
   const [isToggleMenu, setToggleMenu] = useState(false);
@@ -76,9 +78,7 @@ const Header = () => {
           <MenuItem onClick={openThirdModal}>이용약관</MenuItem>
         </Menu>
         <MobileMenuBar onClick={toggleMenu}>
-          <Bar />
-          <Bar />
-          <Bar />
+          {isToggleMenu? <img src={close}></img> : <img src={open}></img>}
         </MobileMenuBar>
         <MobileMenuContainer $isOpen={isToggleMenu}>
           <MobileMenu>
