@@ -140,9 +140,6 @@ const Screen = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* @media (max-width: 400px) {
-    border-radius: 0px;
-  } */
   @media (max-width: 600px) {
     border-radius: 10px;
   }
