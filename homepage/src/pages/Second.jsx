@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import SecondContent from "../components/SecondContent";
-import testImage from "../assets/firstpage/image.png";
+import ScreenShot1 from "../assets/secondpage/screenshot1.png";
+import ScreenShot2 from "../assets/secondpage/screenshot2.png";
+import ScreenShot3 from "../assets/secondpage/screenshot3.png";
 import circle from "../assets/secondpage/Circle.png";
 import { useState, useEffect } from "react";
 
@@ -34,7 +36,7 @@ const Second = () => {
       >
         <Slide key={1} $active={currentContent === 1 ? 'true' : 'false'}>
           <SecondContent
-            image={testImage}
+            image={ScreenShot1}
             textImage={circle}
             fontSize={fontSize}
             textMarginTop={"-20px"}
@@ -53,7 +55,7 @@ const Second = () => {
         </Slide>
         <Slide key={2} $active={currentContent === 2 ? 'true' : 'false'}>
           <SecondContent
-            image={testImage}
+            image={ScreenShot2}
             textImage={circle}
             fontSize={fontSize}
             textMarginTop={"-20px"}
@@ -72,7 +74,7 @@ const Second = () => {
         </Slide>
         <Slide key={3} $active={currentContent === 3 ? 'true' : 'false'}>
           <SecondContent
-            image={testImage}
+            image={ScreenShot3}
             textImage={circle}
             fontSize={fontSize}
             textMarginTop={"-20px"}
