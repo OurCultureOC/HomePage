@@ -6,16 +6,16 @@ import Second from "./pages/Second";
 
 function App() {
   return (
-    <Maindiv>
+    <MainContainer>
       <Header />
       <First />
       <Second />
-    </Maindiv>
+    </MainContainer>
   );
 }
 
 export default App;
 
-const Maindiv = styled.div`
+const MainContainer = styled.div`
   font-family: 'jua';
 `
