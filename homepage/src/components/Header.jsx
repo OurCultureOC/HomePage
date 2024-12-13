@@ -11,10 +11,6 @@ const Header = () => {
   const [isSecondModal, setSecondModal] = useState(false);
   const [isThirdModal, setThirdModal] = useState(false);
 
-  console.log(isToggleMenu);
-  console.log(isFirstModal);
-  console.log(isSecondModal);
-  console.log(isThirdModal);
   const modal1 = useRef();
   const modal2 = useRef();
   const modal3 = useRef();
